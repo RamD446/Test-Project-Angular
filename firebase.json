@@ -1,6 +1,17 @@
 {
   "hosting": {
+    "site": "rdmdb-76959",
     "public": "dist/test-project/browser",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }
