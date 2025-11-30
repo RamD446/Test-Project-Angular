@@ -34,12 +34,19 @@ jobs:
 
       # Step 5: Build Angular project
       - name: Build project
-        run: npm run build  # Ensure this outputs to dist/test-project/browser
+        run: npm run build  # Outputs to dist/test-project/browser
 
       # Step 6: Deploy to Firebase Hosting
       - name: Deploy to Firebase Hosting
         uses: w9jds/firebase-action@v2.2.0
         with:
-          args: deploy --only hosting
+          args: deploy --only hosting --debug
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+      # Step 7: Print Firebase Hosting URL
+      - name: Show deployed URL
+        run: |
+          echo "Your app is live at: https://$(firebase hosting:sites:list --json | jq -r '.[] | select(.default) | .name').web.app"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
