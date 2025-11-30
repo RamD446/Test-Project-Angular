@@ -1,13 +1,15 @@
-<!-- HEADER / NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+<!-- MODERN NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
   <div class="container">
-    <a class="navbar-brand fw-bold">MyAngularApp</a>
-
+    <a class="navbar-brand fw-bold fs-4 text-primary" routerLink="/">MyAngularApp</a>
     <button
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navMenu"
+      aria-controls="navMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,38 +17,82 @@
     <div class="collapse navbar-collapse" id="navMenu">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link">Home</a>
+          <a class="nav-link fw-medium" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">About</a>
+          <a class="nav-link fw-medium" routerLink="/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">Contact</a>
+          <a class="nav-link fw-medium" routerLink="/services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-medium" routerLink="/contact">Contact</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- BODY CONTENT -->
-<div class="content-area">
-  <div
-    class="welcome-container d-flex flex-column justify-content-center align-items-center text-center p-5"
-  >
-    <h1 class="welcome-title fw-bold">Welcome to Your Angular Project</h1>
-    <p class="lead mt-3">
-      This is a fresh, clean UI template to start your Angular app.
-    </p>
-
-    <button class="btn btn-primary mt-4 px-4 py-2 fw-semibold">
-      Get Started
-    </button>
+<!-- HERO SECTION -->
+<section class="hero d-flex align-items-center text-center text-white" style="background: linear-gradient(135deg,#0d6efd,#6610f2); height: 80vh;">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-3">Build Stunning Angular Apps</h1>
+    <p class="lead mb-4 opacity-75">Fast, responsive, and modern UI for your projects</p>
+    <a class="btn btn-light btn-lg fw-bold px-5 py-2 shadow-sm" routerLink="/get-started">Get Started</a>
   </div>
-</div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Why Choose MyAngularApp?</h2>
+      <p class="text-muted">Everything you need to start your Angular project efficiently</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm text-center p-4">
+          <div class="mb-3">
+            <i class="bi bi-speedometer2 fs-1 text-primary"></i>
+          </div>
+          <h5 class="fw-bold">Fast Development</h5>
+          <p class="text-muted">Build responsive apps quickly with Angular and modern UI components.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm text-center p-4">
+          <div class="mb-3">
+            <i class="bi bi-grid fs-1 text-primary"></i>
+          </div>
+          <h5 class="fw-bold">Scalable Architecture</h5>
+          <p class="text-muted">Easily maintain and scale your application following Angular best practices.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm text-center p-4">
+          <div class="mb-3">
+            <i class="bi bi-rocket fs-1 text-primary"></i>
+          </div>
+          <h5 class="fw-bold">Seamless Navigation</h5>
+          <p class="text-muted">Smooth routing and intuitive navigation make your app user-friendly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
-<footer class="bg-dark text-white text-center py-3">
-  <p class="mb-0">© 2025 MyAngularApp. All Rights Reserved.</p>
+<footer class="bg-dark text-white py-4">
+  <div class="container text-center">
+    <p class="mb-2">&copy; 2025 MyAngularApp. All rights reserved.</p>
+    <div class="d-flex justify-content-center gap-3">
+      <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+      <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+    </div>
+  </div>
 </footer>
 
-  <router-outlet></router-outlet>
+<!-- ANGULAR ROUTER OUTLET -->
+<router-outlet></router-outlet>

@@ -1,13 +1,16 @@
 {
   "hosting": {
-    "public": "dist/test-project/browser",
+    "public": "dist/test-project-angular",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
     "rewrites": [
-      { "source": "**", "destination": "/index.html" }
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }
