@@ -3,26 +3,25 @@ name: Firebase Deploy
 on:
   push:
     branches:
-      - main  # Trigger deployment on push to main branch
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '22'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build project
-        run: npm run build  # Make sure this builds your app into dist/test-project/browser
+        run: npm run build
 
       - name: Deploy to Firebase Hosting
         uses: w9jds/firebase-action@v2.2.0
