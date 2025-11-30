@@ -3,23 +3,23 @@ name: Firebase Deploy
 on:
   push:
     branches:
-      - main  # Trigger deploy on push to main branch
+      - main  # Deploys on push to main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout your code
+      # 1️⃣ Checkout code
       - uses: actions/checkout@v3
 
-      # Step 2: Setup Node.js 22
+      # 2️⃣ Setup Node.js 22
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '22'
 
-      # Step 3: Cache node_modules for faster builds
+      # 3️⃣ Cache node_modules
       - name: Cache Node modules
         uses: actions/cache@v3
         with:
@@ -28,24 +28,24 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      # Step 4: Install dependencies
+      # 4️⃣ Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 5: Build Angular project
+      # 5️⃣ Build Angular project
       - name: Build project
-        run: npm run build  # Outputs to dist/test-project/browser
+        run: npm run build  # Make sure output goes to dist/test-project/browser
 
-      # Step 6: Deploy to Firebase Hosting
+      # 6️⃣ Deploy to Firebase Hosting
       - name: Deploy to Firebase Hosting
         uses: w9jds/firebase-action@v2.2.0
         with:
-          args: deploy --only hosting --debug
+          args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
-      # Step 7: Print Firebase Hosting URL
-      - name: Show deployed URL
+      # 7️⃣ Print deployed URL
+      - name: Show Firebase Hosting URL
         run: |
           echo "Your app is live at: https://$(firebase hosting:sites:list --json | jq -r '.[] | select(.default) | .name').web.app"
         env:
