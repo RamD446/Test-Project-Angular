@@ -3,29 +3,30 @@ name: Firebase Deploy
 on:
   push:
     branches:
-      - main  # deploys automatically on push to main
+      - main  # Trigger deployment on push to main branch
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'  # or your Node version
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build project
-      run: npm run build  # replace if your build command is different
+      - name: Build project
+        run: npm run build  # Make sure this builds your app into dist/test-project/browser
 
-    - name: Deploy to Firebase Hosting
-      uses: w9jds/firebase-action@v2.2.0
-      with:
-        args: deploy --only hosting
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Deploy to Firebase Hosting
+        uses: w9jds/firebase-action@v2.2.0
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
