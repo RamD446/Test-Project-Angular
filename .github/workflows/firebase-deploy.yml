@@ -3,7 +3,7 @@ name: Firebase Deploy
 on:
   push:
     branches:
-      - main  # Deploys on push to main
+      - main  # Trigger deploy on push to main
 
 jobs:
   build-and-deploy:
@@ -36,17 +36,20 @@ jobs:
       - name: Build project
         run: npm run build  # Make sure output goes to dist/test-project/browser
 
-      # 6️⃣ Deploy to Firebase Hosting
+      # 6️⃣ Install Firebase CLI
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      # 7️⃣ Deploy to Firebase Hosting
       - name: Deploy to Firebase Hosting
-        uses: w9jds/firebase-action@v2.2.0
-        with:
-          args: deploy --only hosting
+        run: firebase deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
-      # 7️⃣ Print deployed URL
+      # 8️⃣ Show deployed URL
       - name: Show Firebase Hosting URL
         run: |
-          echo "Your app is live at: https://$(firebase hosting:sites:list --json | jq -r '.[] | select(.default) | .name').web.app"
+          SITE=$(firebase hosting:sites:list --json | jq -r '.[] | select(.default) | .name')
+          echo "Your app is live at: https://$SITE.web.app"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
