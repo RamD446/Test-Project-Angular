@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "rdmdb-76959",
     "public": "dist/test-project/browser",
     "ignore": [
       "firebase.json",
