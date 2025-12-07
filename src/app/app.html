@@ -1,33 +1,75 @@
-<!-- RDM11 - SIMPLE WEBSITE (WORK IN PROGRESS) -->
-
-<!-- HEADER -->
-<header style="padding:18px 0; background:#4f46e5; color:white; text-align:center;">
-  <h1>RDM11 — Portfolio (WIP)</h1>
+<!-- HERO SECTION -->
+<header class="bg-dark text-white py-5 text-center">
+  <div class="container">
+    <h1 class="display-5 fw-bold">RDM11 — Portfolio</h1>
+    <p class="lead text-white-50 mt-2">Work in Progress</p>
+  </div>
 </header>
 
-<!-- BODY -->
-<main style="padding:40px 20px; text-align:center;">
+<!-- ABOUT SECTION -->
+<section class="py-5">
+  <div class="container text-center">
 
-  <h2>👋 Hi, I'm Raman</h2>
-  <p>Frontend Developer | Angular | UI/UX</p>
+    <h2 class="fw-bold mb-2">👋 Hi, I'm Raman</h2>
+    <p class="text-muted fs-5">
+      Frontend Developer • Angular • UI/UX
+    </p>
 
-  <section style="margin-top:40px;">
-    <h3>Work in Progress...</h3>
-    <p>Website is being updated. New design & projects coming soon.</p>
-  </section>
+    <p class="mt-3 mx-auto" style="max-width: 650px;">
+      I'm currently updating my portfolio. A new design, latest projects, and interactive UI sections will be available soon.  
+      Stay tuned for something exciting!
+    </p>
 
-  <section style="margin-top:40px;">
-    <h3>Quick Links</h3>
-    <a href="#" style="margin-right:15px;">Home</a>
-    <a href="#">Projects</a>
-  </section>
+  </div>
+</section>
 
-</main>
+<!-- CARDS SECTION -->
+<section class="py-4 bg-light">
+  <div class="container">
+
+    <h3 class="fw-bold text-center mb-4">Coming Soon</h3>
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-4">
+        <div class="card shadow-sm mb-4 text-center">
+          <div class="card-body">
+            <h5 class="card-title">Projects</h5>
+            <p class="card-text text-muted">
+              Showcasing UI/UX developments, Angular apps, and custom solutions.
+            </p>
+            <a href="#" class="btn btn-primary disabled">View Soon</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow-sm mb-4 text-center">
+          <div class="card-body">
+            <h5 class="card-title">Experience</h5>
+            <p class="card-text text-muted">
+              A detailed experience page with career timeline and achievements.
+            </p>
+            <a href="#" class="btn btn-primary disabled">Coming Soon</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- QUICK LINKS -->
+<section class="py-4 text-center">
+  <h3 class="fw-bold mb-3">Quick Links</h3>
+  <a class="btn btn-outline-dark me-2" href="#">Home</a>
+  <a class="btn btn-outline-dark" href="#">Projects</a>
+</section>
 
 <!-- FOOTER -->
-<footer style="padding:15px 0; background:#222; color:#fff; text-align:center; margin-top:40px;">
-  <p>© 2025 RDM11 | Work In Progress</p>
+<footer class="py-3 bg-dark text-white text-center mt-4">
+  <p class="mb-0">&copy; 2025 RDM11 — Portfolio</p>
 </footer>
-
 
 <router-outlet></router-outlet>
